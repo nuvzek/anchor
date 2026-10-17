@@ -1,0 +1,14 @@
+[user]
+	name = evan
+	email = nuvzek@gmail.com
+[credential]
+  helper = store
+[core]
+  autocrlf = input
+  ignorecase = true
+[credential "https://origin.cursor.com/git"]
+	helper = 
+	helper = !/Users/nuvzek/.local/bin/origin credential-helper
+[credential "https://origin.cursor.com"]
+	helper = 
+	helper = !/Users/nuvzek/.local/bin/origin credential-helper

@@ -1,0 +1,78 @@
+# ———————————————————————————————————————— Software Configs ———————————————————————————————————————
+
+# Oh My Zsh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+plugins=(
+git
+zsh-autosuggestions
+copypath
+copyfile
+copybuffer
+)
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source $ZSH/oh-my-zsh.sh
+
+# Sase
+export MY_PING_PATH=/Applications/SASE.app/Contents/Services
+export PATH=${MY_PING_PATH}:$PATH
+# ———————————————————————————————————— Develop Environments ——————————————————————————————————————
+
+# Fnm
+eval "$(fnm env --use-on-cd)"
+
+# Pnpm
+export PNPM_HOME="/Users/nuvzek/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# Pnpm End
+
+# Cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+# Cargo End
+# ——————————————————————————————————————— System Settings ————————————————————————————————————————
+
+# Network Proxy
+export https_proxy=http://127.0.0.1:6152
+export http_proxy=http://127.0.0.1:6152
+export all_proxy=socks5://127.0.0.1:6153
+export no_proxy="localhost,127.0.0.1,::1,.mycorp.local,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,169.254.0.0/16,198.18.0.0/15,cgh-genai-gateway2-svc.cgh-genai-all-dev.svc.cluster.local.c504e58d3ee2e4328b81a3ce07647a3c7"
+
+# System Alias
+alias ls="lsd"
+alias ll="lsd -l"
+alias c="code ."
+alias ct="tmux new -s nuvzek"
+alias t="tmux attach -t nuvzek"
+alias d="tmux detach"
+alias wx="nohup /Applications/WeChat.app/Contents/MacOS/WeChat > /dev/null 2>&1 &"
+alias rcset="rcup -v"
+alias vi="nvim"
+alias vim="nvim"
+alias cd="z"
+alias wb="chmod +x ~/.dotfiles/wechat-biz.sh && ~/.dotfiles/wechat-biz.sh auto"
+alias wrb="chmod +x ~/.dotfiles/wechat-biz.sh && ~/.dotfiles/wechat-biz.sh rebuild"
+alias work="claude --dangerously-skip-permissions"
+
+# Zoxide
+eval "$(zoxide init zsh)"
+
+# k9s
+export KUBECONFIG=$HOME/.kube/config
+
+# amp
+export PATH="$HOME/.local/bin:$PATH"
+
+# secrets
+[ -f ~/.zsh_secrets ] && source ~/.zsh_secrets
+
+export PATH="/Users/nuvzek/.kimi-code/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
