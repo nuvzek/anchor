@@ -23,4 +23,7 @@ return {
 	window_background_opacity = 0.9,
 	macos_window_background_blur = 15,
 	tab_bar_at_bottom = true,
+	-- Metal 后端在半透明/毛玻璃 + 非整数 line_height 下会丢重绘事件，
+	-- 导致 tmux 面板出现空白块，切到 OpenGL 规避
+	front_end = "OpenGL",
 }
