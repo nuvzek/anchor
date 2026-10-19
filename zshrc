@@ -10,10 +10,10 @@ copypath
 copyfile
 copybuffer
 )
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source $ZSH/oh-my-zsh.sh
 
@@ -78,4 +78,4 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
 # Aliyun Local Role
-source '/Users/nuvzek/Work/taikoo-ai-platform/scripts/launch/copy2zshrc'
+[ -f '/Users/nuvzek/Work/taikoo-ai-platform/scripts/launch/copy2zshrc' ] && source '/Users/nuvzek/Work/taikoo-ai-platform/scripts/launch/copy2zshrc'
