@@ -73,9 +73,6 @@ export PATH="$HOME/.local/bin:$PATH"
 [ -f ~/.zsh_secrets ] && source ~/.zsh_secrets
 
 export PATH="/Users/nuvzek/.kimi-code/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # Aliyun Local Role
 [ -f '/Users/nuvzek/Work/taikoo-ai-platform/scripts/launch/copy2zshrc' ] && source '/Users/nuvzek/Work/taikoo-ai-platform/scripts/launch/copy2zshrc'
